@@ -20,7 +20,7 @@ def create_train_data(current_fold, plane):
     # get the list of image and label number of current_fold
     imlb_list = open(training_set_filename(current_fold), 'r').read().splitlines()
     current_fold = current_fold
-    training_image_set = np.zeros((len(imlb_list)), dtype = np.int32)
+    training_image_set = np.zeros((len(imlb_list)), dtype = np.int)
 
     for i in range(len(imlb_list)):
         s = imlb_list[i].split(' ')
@@ -28,11 +28,11 @@ def create_train_data(current_fold, plane):
 
     slice_list = open(list_training[plane], 'r').read().splitlines()
     slices = len( slice_list)
-    image_ID = np.zeros(( slices), dtype = np.int32)
-    slice_ID = np.zeros(( slices), dtype = np.int32)
+    image_ID = np.zeros(( slices), dtype = np.int)
+    slice_ID = np.zeros(( slices), dtype = np.int)
     image_filename = ['' for l in range( slices)]
     label_filename = ['' for l in range( slices)]
-    pixels = np.zeros((slices), dtype = np.int32)
+    pixels = np.zeros((slices), dtype = np.int)
 
     for l in range(slices):
         s =  slice_list[l].split(' ')
